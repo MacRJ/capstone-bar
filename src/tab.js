@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableHighlight, StyleSheet, Image} from 'react-native';
 import InternalTab from './internalTab'
 
-const tab = ({tab, color, select}) => {
+const tab = ({tab, color, select, update}) => {
   const styles = StyleSheet.create({
     bill: {
       flex: 1,
@@ -37,7 +37,8 @@ const tab = ({tab, color, select}) => {
 
     <TouchableHighlight
       style={selected ? selectedStyle : bill }
-      onPress={() => select(tab.id)}>
+      onPress={
+        () => select(tab.id)}>
         <View>
           <InternalTab />
         </View>

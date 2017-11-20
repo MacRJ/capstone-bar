@@ -1,19 +1,49 @@
-import React from 'react';
-import {View, Text} from 'react-native'
+import React, {Component} from 'react';
+import {View, Text} from 'react-native';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-const BillBody = () => {
+
+class BillBody extends Component{
+
+  getDescription() {
+    return this.props.bill.map(single => {
+      return <Text>{single.name}</Text>
+    })
+  }
+  render() {
+
+
   const {body} = styles
   return (
     <View style = {body}>
-      <Text>Bill Body </Text>
+      <Text></Text>
+      {this.getDescription()}
+      <Text> Quantiy </Text>
+      <Text> Total </Text>
     </View>
   )
+}
 }
 
 const styles = {
   body: {
-    flex: 2
+    flex: 2,
+    paddingTop: 10,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    borderBottomWidth: 2,
+
+
   }
 }
 
-export default BillBody
+function mapStateToProps(state, props) {
+  return {
+    bill: state.bill
+  }
+}
+
+
+export default connect(mapStateToProps, null)(BillBody)

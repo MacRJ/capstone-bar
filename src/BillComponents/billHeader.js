@@ -7,6 +7,7 @@ const BillHeader = () => {
     <View style={header}>
       <Text> Server: Steve </Text>
       <Text> Description </Text>
+      <Text> Quantiy </Text>
       <Text> Total </Text>
     </View>
   )
@@ -18,7 +19,7 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    borderBottomWidth: 1
+    borderBottomWidth: 2
   }
 }
 

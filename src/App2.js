@@ -15,7 +15,10 @@ render() {
       </View>
       <View style={container}>
         <Working />
-        <Tabs style={tabs}/>
+        <Tabs
+        style={tabs}
+        tabs={this.props.tabs}
+        />
       </View>
     </View>
   )
@@ -45,5 +48,8 @@ const styles = StyleSheet.create({
   working: {
   }
 });
+
+
+
 
 export default App2

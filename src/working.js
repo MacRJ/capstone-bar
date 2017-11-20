@@ -5,15 +5,18 @@ import Items from './items'
 
 class working extends Component {
  state = {
-   billSelected: true
+   billSelected: true,
+   update: false,
  }
+
+
 
 // Selecting Bill Function
 selectingBillFunction() {
   if(!this.state.billSelected) {
     return <TouchableHighlight onPress={() => this.setState({billSelected: true})}>
     <View>
-      <Bill selected={this.state.billSelected} />
+      <Bill selected={this.state.billSelected}/>
     </View>
   </TouchableHighlight>
 

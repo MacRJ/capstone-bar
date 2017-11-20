@@ -43,11 +43,6 @@ const styles = {
   }
 }
 
-function mapStateToProps(state, props) {
-  return {
-    bill: state.bill
-  }
-}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -56,4 +51,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bill)
+export default connect(null, mapDispatchToProps)(Bill)

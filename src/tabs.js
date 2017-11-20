@@ -4,18 +4,15 @@ import Tab from './tab';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getAllTabs, addTab, selectTab} from '../actions/getAllTabs';
-import AddNew from './addNew'
+import {addTab, selectTab, getBill, getAllTabs} from '../actions/getAllTabs';
+import AddNew from './addNew';
 
 class tabs extends Component {
 
-componentDidMount() {
-this.props.getAllTabs()
-}
 
 renderTabs() {
 return this.props.tabs.map((tab, i) => {
-  let colors = ['#52dbaf','#439aca','#e9743f','#fede86', '#3bba51', '#5ee19b', '#c26ed2', '#cec500','#36c2a6',  '#ec696d'];
+  let colors = ['#31393c', '#2176ff','#fdca40', '#f79824','#33a1fd','#52dbaf','#439aca','#e9743f','#fede86', '#3bba51', '#5ee19b', '#c26ed2', '#cec500','#36c2a6',  '#ec696d'];
   return <Tab
   key={tab.id}
   tab={tab}
@@ -25,6 +22,13 @@ return this.props.tabs.map((tab, i) => {
 })
 }
 
+componentDidUpdate() {
+  this.props.getBill()
+}
+
+componentDidMount() {
+this.props.getAllTabs()
+}
 
 render(){
   const {tabs} = styles
@@ -63,9 +67,10 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch)
  {
    return {
-     getAllTabs: bindActionCreators(getAllTabs, dispatch),
      add: bindActionCreators(addTab, dispatch),
-     selectTab: bindActionCreators(selectTab, dispatch)
+     selectTab: bindActionCreators(selectTab, dispatch),
+     getBill: bindActionCreators(getBill, dispatch),
+     getAllTabs: bindActionCreators(getAllTabs, dispatch),
    }
  }
 
