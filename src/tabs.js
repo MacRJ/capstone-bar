@@ -27,7 +27,7 @@ return this.props.tabs.map((tab, i) => {
 
 
 render(){
-  const {container, tabs, add, scroll} = styles
+  const {tabs} = styles
 
     return (
       <View >
@@ -47,23 +47,11 @@ render(){
 };
 
 const styles = {
-  container: {
-  },
   tabs: {
     width: 400,
     alignItems: 'flex-end',
     flex: 1
   },
-  add: {
-    height: 70,
-    width: 100,
-    backgroundColor: 'yellow',
-  },
-  scroll: {
-    overScrollMode: 'auto',
-    overflow: 'hidden'
-
-  }
 }
 
 function mapStateToProps(state, props) {

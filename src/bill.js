@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBill} from '../actions/getAllTabs'
+import {getBill} from '../actions/getAllTabs';
+import InternalBill from './internalBill'
 
 
 class Bill extends Component {
@@ -12,10 +13,9 @@ componentDidMount() {
 }
 
   render(props) {
-    console.log('theProps', this.props.bill)
     return (
       <View style={this.props.selected ? styles.selectedStyle : styles.not_selected} >
-        <Text>im here</Text>
+        <InternalBill />
       </View>
     )
   }
@@ -45,7 +45,7 @@ const styles = {
 
 function mapStateToProps(state, props) {
   return {
-    bill: state.getBill
+    bill: state.bill
   }
 }
 
