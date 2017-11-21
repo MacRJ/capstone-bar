@@ -16,7 +16,7 @@ export const addTab = () => {
 export const selectTab = (id) => {
   return {
     type: 'SELECT',
-    payload: axios.post('https://murmuring-tundra-40675.herokuapp.com/tabs/select/' + id)
+    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/tabs/select/${id}`)
   }
 }
 
@@ -47,5 +47,13 @@ export const getAllItems = () => {
   return {
     type: 'GET_ALL_ITEMS',
     payload: axios.get('https://murmuring-tundra-40675.herokuapp.com/items')
+  }
+}
+// selecting a type of items
+export const getType = (id) => {
+  console.log('theID', id)
+  return {
+    type: 'GET_TYPE',
+    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/items/${id} `)
   }
 }

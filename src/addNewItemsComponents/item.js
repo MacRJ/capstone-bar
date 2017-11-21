@@ -1,12 +1,16 @@
 import React from 'react';
-import {Text, View} from 'react-native'
+import {Text, View, TouchableHighlight} from 'react-native'
 
-const Item = (props) => {
+const Item = ({selecting, item}) => {
   const {container} = styles
+
   return (
-    <View style={container}>
-      <Text>{props.item.name} </Text>
-    </View>
+    <TouchableHighlight
+    style={container}
+    onPress={() => selecting(item.id)}
+    >
+      <Text>{item.name} </Text>
+    </TouchableHighlight>
   )
 }
 const styles = {
