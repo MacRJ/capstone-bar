@@ -11,11 +11,16 @@ componentDidMount() {
   this.props.getAll()
 }
 
+// selecting a type
+selectingAType = (id) => {
+  this.props.selectItem(id)
+}
+
 // rendering the bar items types
 barItems() {
-  return this.props.items.map(item => {
-    console.log('theItems', item)
-    return item.selected ? <Text>This is selected </Text> : <Item
+  return this.props.items.map((item, i) => {
+     // console.log('testy', this.props.items)
+    return item.selected ? <Text key={100}>This is selected </Text> : <Item 
     key={item.id}
     item={item}
     selecting={this.selectingAType}
@@ -23,10 +28,6 @@ barItems() {
     })
 }
 
-// selecting a type
-selectingAType = (id) => {
-  this.props.selectItem(id)
-}
 
 
 render() {

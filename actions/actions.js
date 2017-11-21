@@ -54,6 +54,6 @@ export const getType = (id) => {
   console.log('theID', id)
   return {
     type: 'GET_TYPE',
-    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/items/${id} `)
+    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/items/select/${id} `)
   }
 }
