@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native'
 import {BillHeader, BillBody, BillTotal} from './BillComponents'
 
-const InternalBill = () => {
+const InternalBill  = () => {
   const {container} = styles
 
   return (

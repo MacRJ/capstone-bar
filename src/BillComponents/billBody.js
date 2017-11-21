@@ -7,13 +7,6 @@ import {Item} from './index'
 
 class BillBody extends Component{
 
-state = {
-  total: null
-}
-
-total() {
-
-}
 
 renderItems() {
   var arr = this.props.bill

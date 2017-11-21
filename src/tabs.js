@@ -4,7 +4,7 @@ import Tab from './tab';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addTab, selectTab, getBill, getAllTabs} from '../actions/getAllTabs';
+import {addTab, selectTab, getBill, getAllTabs, upDateBill} from '../actions/getAllTabs';
 import AddNew from './addNew';
 
 class tabs extends Component {
@@ -24,6 +24,7 @@ return this.props.tabs.map((tab, i) => {
 
 componentDidUpdate() {
   this.props.getBill()
+  this.props.upDateBill(null)
 }
 
 componentDidMount() {
@@ -71,6 +72,7 @@ function mapDispatchToProps(dispatch)
      selectTab: bindActionCreators(selectTab, dispatch),
      getBill: bindActionCreators(getBill, dispatch),
      getAllTabs: bindActionCreators(getAllTabs, dispatch),
+     upDateBill: bindActionCreators(upDateBill, dispatch)
    }
  }
 
