@@ -4,7 +4,7 @@ import Tab from './tab';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addTab, selectTab, getBill, getAllTabs, upDateBill} from '../actions/getAllTabs';
+import {addTab, selectTab, getBill, getAllTabs, upDateBill} from '../actions/actions';
 import AddNew from './addNew';
 
 class tabs extends Component {

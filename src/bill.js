@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBill} from '../actions/getAllTabs';
+import {getBill} from '../actions/actions';
 import InternalBill from './internalBill'
 
 

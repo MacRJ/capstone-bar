@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
+import {InternalItems} from './addNewItemsComponents'
 
-class Items extends Component {
-  render(props) {
+const Items = (props) =>  {
     return (
-      <View style={this.props.selected ? styles.not_selected : styles.selectedStyle}>
-        <Text>Items has been heard</Text>
+      <View style={props.selected ? styles.not_selected : styles.selectedStyle}>
+        <InternalItems />
       </View>
     )
-  }
 }
 
 const styles = {

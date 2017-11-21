@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {upDateBill} from '../../actions/getAllTabs'
+import {upDateBill} from '../../actions/actions'
 
 class Item extends Component {
 
