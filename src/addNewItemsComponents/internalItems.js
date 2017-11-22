@@ -18,13 +18,29 @@ selectingAType = (id) => {
 
 // rendering the bar items types
 barItems() {
-  return this.props.items.map((item, i) => {
-     // console.log('testy', this.props.items)
-    return item.selected ? <Text key={100}>This is selected </Text> : <Item 
-    key={item.id}
-    item={item}
-    selecting={this.selectingAType}
-    />
+  const {items} = this.props
+
+//Filtering out multiple examples of cateogories
+  var filtering = func(items)
+  function func(arr) {
+    return arr.filter(item => {
+      return item.id === item.drink_type
+    })
+  }
+  // Mapping funciton for Item
+  return filtering.map((item, i) => {
+      return item.selected ? <Item
+                                key={item.id}
+                                item={item}
+                                selecting={this.selectingAType}
+                                selected = {true}
+                                /> : <Item
+                                        key={item.id}
+                                        item={item}
+                                        selecting={this.selectingAType}
+                                        selected = {false}
+                                        />
+
     })
 }
 

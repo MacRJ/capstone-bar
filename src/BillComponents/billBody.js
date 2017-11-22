@@ -14,19 +14,19 @@ renderItems() {
     var foundIdx = deepIncludes(accu, item)
     if(foundIdx === -1) {
       accu.push({drink_id: item.drink_id, name: item.name, fulfilled: item.fulfilled, price: item.price, quantity: 1})
-    } else {
-      accu[foundIdx].quantity ++
-    }
-    return accu
-  }, [])
-  function deepIncludes(arr, obj) {
-    for(var i = 0; i< arr.length; i++) {
-      if(arr[i].drink_id === obj.drink_id) {
-        return i
+      } else {
+        accu[foundIdx].quantity ++
       }
+      return accu
+    }, [])
+    function deepIncludes(arr, obj) {
+      for(var i = 0; i< arr.length; i++) {
+        if(arr[i].drink_id === obj.drink_id) {
+          return i
+        }
+      }
+      return -1
     }
-    return -1
-  }
   return currentTab.map((tab, i) => {
     return <Item
     currentTab={tab}
