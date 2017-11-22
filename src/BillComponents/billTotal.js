@@ -4,8 +4,15 @@ import {connect} from 'react-redux'
 
 class BillTotal extends Component {
 
+calculateTotal() {
+  return this.props.bill.reduce((accu, curr) => {
+    return accu += parseFloat(curr.price)
+  }, 0)
+}
+
+
 grandTotal() {
-  return (parseInt(this.props.total) * 1.056).toFixed(2)
+  return (this.calculateTotal() * 1.056).toFixed(2)
 }
 
 
@@ -16,7 +23,7 @@ grandTotal() {
     <View style={container}>
       <View style={row}>
         <Text style={{flex: 1}}> Total </Text>
-        <Text style={{flex: 1}}>$ {this.props.total}</Text>
+        <Text style={{flex: 1}}>$ {this.calculateTotal()}</Text>
       </View>
       <View style={row}>
         <Text style={{flex: 1}}>Tax</Text>
@@ -46,7 +53,8 @@ const styles = {
 
 function mapStateToProps(state, props) {
   return {
-    total: state.total
+    total: state.total,
+    bill: state.bill
   }
 }
 

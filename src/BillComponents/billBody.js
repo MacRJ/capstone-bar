@@ -8,6 +8,7 @@ import {Item} from './index'
 class BillBody extends Component{
 
 
+
 renderItems() {
   var arr = this.props.bill
   var currentTab = arr.reduce((accu, item, id) => {
@@ -27,6 +28,7 @@ renderItems() {
       }
       return -1
     }
+
   return currentTab.map((tab, i) => {
     return <Item
     currentTab={tab}

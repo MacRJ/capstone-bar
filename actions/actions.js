@@ -27,20 +27,7 @@ export const getBill = () => {
   }
 }
 
-// Calculating Total and giving it to total Component
-var newTotal = 0
-export const upDateBill = (total) => {
-  if(total === null) {
-    newTotal = 0
-  } else {
-totalInt = parseInt(total)
-newTotal = parseInt(newTotal) + totalInt
-}
-  return {
-    type: 'UPDATE_TOTAL',
-    payload: newTotal
-  }
-}
+
 
 // Getting all the Items for the 'bar'
 export const getAllItems = () => {

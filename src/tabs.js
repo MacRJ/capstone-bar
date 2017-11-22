@@ -24,7 +24,6 @@ return this.props.tabs.map((tab, i) => {
 
 componentDidUpdate() {
   this.props.getBill()
-  this.props.upDateBill(null)
 }
 
 componentDidMount() {
@@ -72,7 +71,7 @@ function mapDispatchToProps(dispatch)
      selectTab: bindActionCreators(selectTab, dispatch),
      getBill: bindActionCreators(getBill, dispatch),
      getAllTabs: bindActionCreators(getAllTabs, dispatch),
-     upDateBill: bindActionCreators(upDateBill, dispatch)
+     // upDateBill: bindActionCreators(upDateBill, dispatch)
    }
  }
 

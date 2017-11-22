@@ -1,20 +1,16 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native'
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux'
-import {upDateBill} from '../../actions/actions'
+
+
 
 class Item extends Component {
 
 
-// Updating the total for the total page
-componentDidUpdate() {
-  this.props.newTotal(this.getTotal())
-}
+
 // Getting the total for the line Item
   getTotal() {
     const {quantity, price, name} = this.props.currentTab
-    let price2 = parseInt(price)
+    let price2 = parseFloat(price)
     let total = 0
 
     if(quantity > 1) {
@@ -60,11 +56,7 @@ const styles = {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-  newTotal: bindActionCreators(upDateBill, dispatch)
-  }
-}
 
 
-export default connect(null, mapDispatchToProps)(Item)
+
+export default Item
