@@ -5,7 +5,7 @@ import Items from './items'
 
 class working extends Component {
  state = {
-   billSelected: true,
+   billSelected: false,
  }
 
 

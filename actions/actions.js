@@ -38,9 +38,15 @@ export const getAllItems = () => {
 }
 // selecting a type of items
 export const getType = (id) => {
-  console.log('theID', id)
   return {
     type: 'GET_TYPE',
     payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/items/select/${id} `)
+  }
+}
+// PullDown Menu
+export const getPullDown = (id) => {
+  return {
+    type: 'GET_PULLDOWN',
+    payload: axios.get(`https://murmuring-tundra-40675.herokuapp.com/items/item/${id}`)
   }
 }

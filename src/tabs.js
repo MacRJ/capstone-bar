@@ -12,7 +12,7 @@ class tabs extends Component {
 
 renderTabs() {
 return this.props.tabs.map((tab, i) => {
-  let colors = ['#31393c', '#2176ff','#fdca40', '#f79824','#33a1fd','#52dbaf','#439aca','#e9743f','#fede86', '#3bba51', '#5ee19b', '#c26ed2', '#cec500','#36c2a6',  '#ec696d'];
+  let colors = ['#3bba51', '#2176ff','#fdca40', '#cec500','#f79824','#33a1fd','#52dbaf','#439aca','#31393c','#e9743f','#fede86',  '#5ee19b', '#c26ed2', '#36c2a6',  '#ec696d'];
   return <Tab
   key={tab.id}
   tab={tab}

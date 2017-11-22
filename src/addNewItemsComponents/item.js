@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableHighlight, ScrollView} from 'react-native'
+import {connect} from 'react-redux'
 
 class Item extends Component {
 
 // pulldown menu of all drinks in a category
-  pulldown(id){
-  const {item} = this.props
-
-  console.log('myId', id)
+  pulldown(){
+  return this.props.pulldown.map(item => {
+    return <Text key={item.id}>{item.name}</Text>
+  })
 }
-
-
-
-
 
 // Selecting the category
   selecting() {
@@ -29,7 +26,7 @@ class Item extends Component {
               </TouchableHighlight>
                 <View>
                   <ScrollView >
-                    {this.pulldown(item.id)}
+                    {this.pulldown()}
                   </ScrollView>
                 </View>
              </View>
@@ -72,6 +69,12 @@ const styles = {
 
   }
 }
+function mapStateToProps(state, props) {
+  return {
+    pulldown: state.pulldown
+  }
+}
 
 
-export default Item
+
+export default connect(mapStateToProps, null)(Item)
