@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllItems, getType, getPullDown} from '../../actions/actions';
-import Item from './item'
+import {Item} from './'
 
 class InternalItems extends Component {
 
@@ -33,16 +33,16 @@ barItems() {
   // Mapping funciton for Item
   return filtering.map((item, i) => {
       return item.selected ? <Item
-                                key={item.id}
-                                item={item}
-                                selecting={this.selectingAType}
-                                selected = {true}
-                                /> : <Item
-                                        key={item.id}
-                                        item={item}
-                                        selecting={this.selectingAType}
-                                        selected = {false}
-                                        />
+          key={item.id}
+          item={item}
+          selecting={this.selectingAType}
+          selected = {true}
+          /> : <Item
+                  key={item.id}
+                  item={item}
+                  selecting={this.selectingAType}
+                  selected = {false}
+                  />
 
     })
 }
@@ -50,10 +50,12 @@ barItems() {
 
 
 render() {
-  const {container} = styles
+  const {container, row} = styles
     return (
       <View style={container}>
-      {this.barItems()}
+        <View style = {row}>
+          {this.barItems()}
+        </View>
       </View>
     )
   }
@@ -66,6 +68,14 @@ const styles = {
     width: 550,
     height: 650,
     flexWrap: 'wrap'
+  },
+  row: {
+    flexDirection: 'row',
+    // flex: .25,
+    width: 550,
+    flexWrap: 'wrap',
+    height: 175,
+    width: 650,
   }
 }
 function mapStateToProps(state, props) {
