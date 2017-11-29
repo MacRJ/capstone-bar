@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllItems, getType, getPullDown} from '../../actions/actions';
-import {Item} from './'
+import {Item} from './';
+import PullDownItem from './pulldownitem'
 
 class InternalItems extends Component {
 
@@ -17,6 +18,13 @@ componentDidMount() {
 selectingAType = (id) => {
   this.props.selectItem(id)
   this.props.getPullDown(id)
+}
+
+getPulldownItems = () => {
+  return this.props.pulldown.map(item => {
+    console.log('thePullDown', item)
+    return <PullDownItem  key={item.id} item={item}/>
+  })
 }
 
 // rendering the bar items types
@@ -50,11 +58,16 @@ barItems() {
 
 
 render() {
-  const {container, row} = styles
+  const {container, row, items} = styles
     return (
       <View style={container}>
         <View style = {row}>
           {this.barItems()}
+        </View>
+        <View style={items}>
+          <ScrollView>
+            {this.getPulldownItems()}
+          </ScrollView>
         </View>
       </View>
     )
@@ -64,23 +77,29 @@ render() {
 const styles = {
   container: {
     flex: 1,
-    flexDirection: 'row',
-    width: 550,
+    flexDirection: 'column',
+    width: 640,
     height: 650,
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    // backgroundColor: 'green'
   },
   row: {
     flexDirection: 'row',
-    // flex: .25,
+    flex: 1,
     width: 550,
     flexWrap: 'wrap',
     height: 175,
     width: 650,
+  },
+  items: {
+    flex: 1,
+    // backgroundColor: 'red'
   }
 }
 function mapStateToProps(state, props) {
   return {
-    items: state.items
+    items: state.items,
+    pulldown: state.pulldown
   }
 }
 function mapDispatchToProps(dispatch) {

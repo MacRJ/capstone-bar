@@ -6,8 +6,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {addTab, selectTab, getBill, getAllTabs, upDateBill} from '../actions/actions';
 import AddNew from './addNew';
+import WS from 'react-native-websocket'
 
 class tabs extends Component {
+state = {
+  rerender: false
+}
 
 
 renderTabs() {

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableHighlight, ScrollView} from 'react-native'
-import {connect} from 'react-redux';
 import BarItem from './barItem'
 
 class Item extends Component {
@@ -28,13 +27,6 @@ class Item extends Component {
                   >
                     <Text>{item.description}</Text>
               </TouchableHighlight>
-              <View>
-                <ScrollView >
-                  <View style= {scroll} >
-                    {this.pulldown()}
-                  </View>
-                </ScrollView>
-              </View>
              </View>
     } else {
       return <TouchableHighlight
@@ -82,12 +74,8 @@ const styles = {
 
   }
 }
-function mapStateToProps(state, props) {
-  return {
-    pulldown: state.pulldown
-  }
-}
 
 
 
-export default connect(mapStateToProps, null)(Item)
+
+export default Item
