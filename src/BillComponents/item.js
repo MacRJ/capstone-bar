@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native'
+import {View, Text, TouchableHighlight} from 'react-native';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {MakeFulfilled} from '../../actions/actions'
 
 
 
@@ -21,6 +24,27 @@ class Item extends Component {
       return parseFloat(price).toFixed(2)
     }
     return total.toFixed(2)
+  }
+
+  ifFulfilled() {
+    if(this.props.fulfilled) {
+      return <View style={body}>
+        <Text style={one}>{null}</Text>
+        <Text style={two}> {this.props.currentTab.name}</Text>
+        <Text style= {three}> {this.props.currentTab.quantity} </Text>
+        <Text style={four}> $ {this.getTotal()} </Text>
+      </View>
+    } else {
+      return <TouchableHighlight onPress={() => this.makeFulfilled(this.props.id)}>
+        <View style={body}>
+          <Text style={one}>{null}</Text>
+          <Text style={two}> {this.props.currentTab.name}</Text>
+          <Text style= {three}> {this.props.currentTab.quantity} </Text>
+          <Text style={four}> $ {this.getTotal()} </Text>
+        </View>
+      </TouchableHighlight>
+    }
+
   }
 
 
@@ -56,7 +80,10 @@ const styles = {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    makeFulfilled: bindActionCreators(MakeFulfilled, dispatch)
+  }
+}
 
-
-
-export default Item
+export default connect(null, mapDispatchToProps)(Item)

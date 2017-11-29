@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, TouchableHighlight, ScrollView} from 'react-native'
+import {Text, View, TouchableHighlight, ScrollView, Image} from 'react-native'
 import BarItem from './barItem'
 
 class Item extends Component {
@@ -16,7 +16,7 @@ class Item extends Component {
 
 // Selecting the category
   selecting() {
-    const {selected, item, selecting} = this.props
+    const {selected, item, selecting, icon} = this.props
     const {not_selected, selectedStyle, scroll} = styles
 
     if(selected) {
@@ -25,16 +25,23 @@ class Item extends Component {
                   style={selectedStyle}
                   onPress={() => selecting(item.id)}
                   >
-                    <Text>{item.description}</Text>
+                  <Image
+                    source={{uri: icon}}
+                    style={{width: 125, height: 125}}
+                    />
               </TouchableHighlight>
              </View>
     } else {
-      return <TouchableHighlight
-              style={not_selected}
-              onPress={() => selecting(item.id)}>
-
-                <Text>{item.description} </Text>
-            </TouchableHighlight>
+      return <View>
+                <TouchableHighlight
+                    style={not_selected}
+                    onPress={() => selecting(item.id)}>
+                    <Image
+                    source={{uri: icon}}
+                    style={{width: 125, height: 125}}
+                    />
+                </TouchableHighlight>
+            </View>
     }
   }
 
@@ -52,7 +59,6 @@ class Item extends Component {
 
 const styles = {
   not_selected: {
-    backgroundColor: 'green',
     marginRight: 25,
     marginBottom: 25,
     marginTop: 25,
@@ -60,7 +66,6 @@ const styles = {
     height: 125
   },
   selectedStyle: {
-    backgroundColor: 'blue',
     marginRight: 25,
     marginBottom: 25,
     marginTop: 25,

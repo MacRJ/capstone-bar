@@ -7,9 +7,22 @@ import InternalBill from './internalBill'
 
 
 class Bill extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      interval: null
+    }
+  }
 
 componentDidMount() {
-  this.props.getBill()
+  this.props.getBill();
+    this.setState({interval: setInterval(() => {
+      console.log('Interval test')
+      this.props.getBill()
+    }, 1000)});
+  }
+componentWillUnmount() {
+  clearInterval(this.state.interval)
 }
 
   render(props) {

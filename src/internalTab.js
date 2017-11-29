@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native'
 
-const InternalTab = () => {
-  const {container, image, textStyle} = styles
+const InternalTab = ({image, author}) => {
+  const {container, imageStyle, textStyle} = styles
   return (
     <View style={container}>
-      <Image style={image} />
-      <Text style={textStyle}>Tab</Text>
+      <Image source={{uri: image}} style={imageStyle}/>
+      <Text style={textStyle}>{author}</Text>
     </View>
   )
 }
@@ -16,9 +16,10 @@ const styles = {
     flexDirection: 'row',
   },
   textStyle: {
-    padding: 15
+    padding: 15,
+    fontStyle: 'italic'
   },
-  image: {
+  imageStyle: {
     height: 50,
     width: 50,
     borderColor: 'black',
