@@ -5,7 +5,7 @@ import {InternalItems} from './addNewItemsComponents'
 const Items = (props) =>  {
     return (
       <View style={props.selected ? styles.not_selected : styles.selectedStyle}>
-        <InternalItems />
+        {props.selected ? null : <InternalItems />}
       </View>
     )
 }

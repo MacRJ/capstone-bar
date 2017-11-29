@@ -26,44 +26,27 @@ class Item extends Component {
     return total.toFixed(2)
   }
 
-  ifFulfilled() {
-    if(this.props.fulfilled) {
-      return <View style={body}>
+  render() {
+  const {body, one, two, three, four, body2} = styles
+
+    return (
+      <View style={this.props.currentTab.fulfilled ? body : body2}>
         <Text style={one}>{null}</Text>
         <Text style={two}> {this.props.currentTab.name}</Text>
         <Text style= {three}> {this.props.currentTab.quantity} </Text>
         <Text style={four}> $ {this.getTotal()} </Text>
       </View>
-    } else {
-      return <TouchableHighlight onPress={() => this.makeFulfilled(this.props.id)}>
-        <View style={body}>
-          <Text style={one}>{null}</Text>
-          <Text style={two}> {this.props.currentTab.name}</Text>
-          <Text style= {three}> {this.props.currentTab.quantity} </Text>
-          <Text style={four}> $ {this.getTotal()} </Text>
-        </View>
-      </TouchableHighlight>
-    }
-
+    )
   }
-
-
-  render() {
-    const {body, one, two, three, four} = styles
-  return (
-    <View style={body}>
-      <Text style={one}>{null}</Text>
-      <Text style={two}> {this.props.currentTab.name}</Text>
-      <Text style= {three}> {this.props.currentTab.quantity} </Text>
-      <Text style={four}> $ {this.getTotal()} </Text>
-    </View>
-  )
-}
 }
 
 const styles = {
   body: {
     flexDirection: 'row',
+  },
+  body2: {
+    flexDirection: 'row',
+    backgroundColor: 'red'
   },
   one: {
     flex: 1,

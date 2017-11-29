@@ -61,6 +61,6 @@ export const addDrink = (id) => {
 export const MakeFulfilled = (id) => {
   return {
     type: 'MAKE_FULFILLED',
-    payload: axios.post('')
+    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/bill/fulfilled/${id}`)
   }
 }

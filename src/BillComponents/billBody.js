@@ -30,6 +30,7 @@ renderItems() {
     }
 
   return currentTab.map((tab, i) => {
+    console.log('finalTheTab', tab)
     return <Item
     currentTab={tab}
     key={i}
