@@ -54,7 +54,7 @@ export const getPullDown = (id) => {
 export const addDrink = (id) => {
   return {
     type: 'ADD_DRINK',
-    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/bill/add/${id}`)
+    payload: axios.post(`https://murmuring-tundra-40675.herokuapp.com/bill/add/${id}/9`)
   }
 }
 

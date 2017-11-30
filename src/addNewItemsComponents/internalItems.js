@@ -4,10 +4,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllItems, getType, getPullDown} from '../../actions/actions';
 import {Item} from './';
-import PullDownItem from './pulldownitem'
+import PullDownItem from './pulldownitem';
 
 class InternalItems extends Component {
-
 
 componentDidMount() {
   this.props.getAll()
@@ -22,7 +21,6 @@ selectingAType = (id) => {
 
 getPulldownItems = () => {
   return this.props.pulldown.map(item => {
-    console.log('thePullDown', item)
     return <PullDownItem  key={item.id} item={item}/>
   })
 }
@@ -32,27 +30,28 @@ barItems() {
   const {items} = this.props
 
 //Filtering out multiple examples of cateogories
-  var filtering = func(items)
-  function func(arr) {
-    return arr.filter(item => {
-      return item.id === item.drink_type
-    })
-  }
-  // Mapping funciton for Item
-  return filtering.map((item, i) => {
-    const icons = ["http://i1044.photobucket.com/albums/b448/rmacwj2/020-jar-of-beer_zps3ednecd5.png", "http://i1044.photobucket.com/albums/b448/rmacwj2/018-beer-pint_zps1gckjhij.png", "http://i1044.photobucket.com/albums/b448/rmacwj2/019-martini-glass_zpsemcroy8i.png"]
+  // var filtering = func(items)
+  // function func(arr) {
+  //   return arr.filter(item => {
+  //     return item.id === item.drink_type
+  //   })
+  // }
+
+  return items
+    .filter(item => item.id === item.drink_type)
+    .map((item, i) => {
       return item.selected ? <Item
           key={item.id}
           item={item}
           selecting={this.selectingAType}
           selected = {true}
-          icon={icons[i]}
-          /> : <Item
+          icon={item.url}
+          />: <Item
                   key={item.id}
                   item={item}
                   selecting={this.selectingAType}
                   selected = {false}
-                  icon={icons[i]}
+                  icon={item.url}
                   />
 
     })

@@ -22,8 +22,7 @@ const styles = {
   imageStyle: {
     height: 50,
     width: 50,
-    borderColor: 'black',
-    backgroundColor: 'black'
+    borderColor: 'black'
   }
 }
 

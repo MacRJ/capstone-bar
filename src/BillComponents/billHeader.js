@@ -7,7 +7,7 @@ const BillHeader = () => {
     <View style={header}>
       <Text> Server: Steve </Text>
       <Text> Description </Text>
-      <Text> Quantiy </Text>
+      <Text> Quantity </Text>
       <Text> Total </Text>
     </View>
   )

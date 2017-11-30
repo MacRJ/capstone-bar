@@ -1,0 +1,3 @@
+rootProject.name = 'tabs_bar'
+
+include ':app'

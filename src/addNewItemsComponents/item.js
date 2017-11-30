@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableHighlight, ScrollView, Image} from 'react-native'
-import BarItem from './barItem'
+import BarItem from './barItem';
 
 class Item extends Component {
 
@@ -18,7 +18,6 @@ class Item extends Component {
   selecting() {
     const {selected, item, selecting, icon} = this.props
     const {not_selected, selectedStyle, scroll} = styles
-
     if(selected) {
       return <View>
               <TouchableHighlight
