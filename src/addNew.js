@@ -4,7 +4,7 @@ import {TouchableHighlight, Text} from 'react-native';
 const AddNew = ({add}) => {
   return (
     <TouchableHighlight style={styles.add} onPress={() => add()}>
-      <Text>Add New Tab</Text>
+      <Text style={{color: 'white'}}>Add New Tab</Text>
     </TouchableHighlight>
   )
 }
@@ -13,11 +13,11 @@ const styles = {
   add: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#b4b8ab',
+    backgroundColor: '#153243',
     height: 70,
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: '#ddd',
+    borderColor: 'black',
   }
 }
 

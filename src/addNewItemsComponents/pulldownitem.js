@@ -6,12 +6,12 @@ import {bindActionCreators} from 'redux'
 
 class PullDownItem extends Component {
     render() {
-    const {item} = styles
+    const {item, text} = styles
     return (
       <TouchableHighlight
         style={item}
         onPress={() => this.props.addDrink(this.props.item.id)}>
-        <Text>{this.props.item.name}</Text>
+        <Text style={text}>{this.props.item.name}</Text>
       </TouchableHighlight>
     )
   }
@@ -34,6 +34,11 @@ const styles = {
     height: 50,
     justifyContent: 'space-around',
     flexDirection: ''
+  },
+  text: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontStyle: 'italic'
   }
 }
 function mapDispatchToProps(dispatch) {

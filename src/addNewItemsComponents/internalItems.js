@@ -28,14 +28,9 @@ getPulldownItems = () => {
 // rendering the bar items types
 barItems() {
   const {items} = this.props
+  console.log('theItems', items.filter(item => item.id === item.drink_type))
 
-//Filtering out multiple examples of cateogories
-  // var filtering = func(items)
-  // function func(arr) {
-  //   return arr.filter(item => {
-  //     return item.id === item.drink_type
-  //   })
-  // }
+
 
   return items
     .filter(item => item.id === item.drink_type)
@@ -95,7 +90,11 @@ const styles = {
   },
   items: {
     flex: 1,
-    // backgroundColor: 'red'
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    backgroundColor: '#d4d2d3'
   }
 }
 function mapStateToProps(state, props) {

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex:.8571,
     flexDirection: 'row',
-    backgroundColor: '#9eb3c2'
+    backgroundColor: 'white'
   },
   header: {
     flex:.1428,
