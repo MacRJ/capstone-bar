@@ -11,15 +11,18 @@ class BillBody extends Component{
 
 renderItems() {
   var arr = this.props.bill
+
   var currentTab = arr.reduce((accu, item, id) => {
-    var foundIdx = deepIncludes(accu, item)
+  var foundIdx = deepIncludes(accu, item)
+
     if(foundIdx === -1) {
       accu.push({drink_id: item.drink_id, name: item.name, fulfilled: item.fulfilled, price: item.price, quantity: 1})
-      } else {
-        accu[foundIdx].quantity ++
-      }
+    } else {
+      accu[foundIdx].quantity ++
+    }
       return accu
     }, [])
+
     function deepIncludes(arr, obj) {
       for(var i = 0; i< arr.length; i++) {
         if(arr[i].drink_id === obj.drink_id) {
@@ -30,7 +33,6 @@ renderItems() {
     }
 
   return currentTab.map((tab, i) => {
-    console.log('finalTheTab', tab)
     return <Item
     currentTab={tab}
     key={i}
@@ -43,12 +45,12 @@ renderItems() {
   render() {
     const {body, description} = styles
 
-    return (
-    <View style = {body}>
-      {this.renderItems()}
-    </View>
-  )
-}
+      return (
+      <View style = {body}>
+        {this.renderItems()}
+      </View>
+    )
+  }
 }
 
 const styles = {

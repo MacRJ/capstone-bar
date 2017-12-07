@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
-import {addDrink} from '../../actions/actions'
+import {addDrink} from '../../../actions/actions'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 

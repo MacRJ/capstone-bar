@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet,View, Text} from 'react-native';
-import Working from './working';
-import Tabs from './tabs'
+import BillSection from '.BillSection/billsection';
+import Tabs from '.TabSection/tabs'
 
 class Main extends Component {
 
@@ -14,7 +14,7 @@ render() {
           <Text>Header</Text>
         </View>
         <View style={container}>
-          <Working />
+          <BillSection />
           <Tabs
           style={tabs}
           tabs={this.props.tabs}
@@ -36,16 +36,12 @@ const styles = StyleSheet.create({
   header: {
     flex:.1428,
     backgroundColor: '#153243',
-    // height: 100,
-    // width: 1200,
     flexDirection: 'column'
   },
   tabs: {
     width: 400,
     alignItems: 'center',
     justifyContent: 'flex-start',
-  },
-  working: {
   }
 });
 

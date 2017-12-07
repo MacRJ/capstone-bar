@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableHighlight} from 'react-native';
-import Bill from './bill';
+import Bill from '.BillComponents/bill';
 import Items from './items'
 
-class working extends Component {
+class billSection extends Component {
  state = {
    billSelected: true,
  }
@@ -12,12 +12,12 @@ class working extends Component {
 
 // Selecting Bill Function
 selectingBillFunction() {
-    if(!this.state.billSelected) {
-      return <TouchableHighlight onPress={() => this.setState({billSelected: true})}>
-      <View>
-        <Bill selected={this.state.billSelected}/>
-      </View>
-    </TouchableHighlight>
+  if(!this.state.billSelected) {
+    return <TouchableHighlight onPress={() => this.setState({billSelected: true})}>
+    <View>
+      <Bill selected={this.state.billSelected}/>
+    </View>
+  </TouchableHighlight>
 
   } else {
       return <View>
@@ -28,12 +28,12 @@ selectingBillFunction() {
 
 // Selecting Items Function
 selectingItemsFunction() {
-    if(this.state.billSelected) {
-      return <TouchableHighlight onPress={() => this.setState({billSelected: false})}>
-      <View>
-        <Items selected={this.state.billSelected} />
-      </View>
-    </TouchableHighlight>
+  if(this.state.billSelected) {
+    return <TouchableHighlight onPress={() => this.setState({billSelected: false})}>
+    <View>
+      <Items selected={this.state.billSelected} />
+    </View>
+  </TouchableHighlight>
 
   } else {
     return <View>
@@ -42,13 +42,13 @@ selectingItemsFunction() {
   }
 }
 
-  render() {
+render() {
   return (
     <View style={styles.container}>
       {this.selectingBillFunction()}
       {this.selectingItemsFunction()}
     </View>
-        );
+      );
     }
 };
 const styles = {
@@ -63,4 +63,4 @@ const styles = {
 
 
 
-export default working
+export default billSection

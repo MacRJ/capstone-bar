@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {MakeFulfilled} from '../../actions/actions'
+import {MakeFulfilled} from '../../../actions/actions'
 
 
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getAllItems, getType, getPullDown} from '../../actions/actions';
+import {getAllItems, getType, getPullDown} from '../../../actions/actions';
 import {Item} from './';
 import PullDownItem from './pulldownitem';
 
