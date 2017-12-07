@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import App2 from './src/App2';
+import Main from './src/Main';
 import Tabs from './src/tabs';
 import Store from './store';
 import {Provider} from 'react-redux'
@@ -13,7 +13,7 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <App2 />
+        <Main />
       </Provider>
     );
   }

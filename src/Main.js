@@ -3,26 +3,26 @@ import {StyleSheet,View, Text} from 'react-native';
 import Working from './working';
 import Tabs from './tabs'
 
-class App2 extends Component {
+class Main extends Component {
 
 render() {
   const {header, container, tabs, master} = styles
 
-  return (
-    <View style={master}>
-      <View style={header}>
-        <Text>Header</Text>
+    return (
+      <View style={master}>
+        <View style={header}>
+          <Text>Header</Text>
+        </View>
+        <View style={container}>
+          <Working />
+          <Tabs
+          style={tabs}
+          tabs={this.props.tabs}
+          />
+        </View>
       </View>
-      <View style={container}>
-        <Working />
-        <Tabs
-        style={tabs}
-        tabs={this.props.tabs}
-        />
-      </View>
-    </View>
-  )
-}
+    )
+  }
 }
 const styles = StyleSheet.create({
   master: {
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
 
 
 
-export default App2
+export default Main
